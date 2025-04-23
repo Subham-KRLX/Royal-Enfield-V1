@@ -1,0 +1,171 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: var(--color-neutral-900);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2; /* Ensure it is above the overlay */
+  width: 100%;
+  padding: 0 var(--space-2);
+}
+
+.hero-text {
+  max-width: 600px;
+  margin: 0 auto 0 var(--space-4);
+  padding: var(--space-3);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+}
+
+.hero-title {
+  margin-bottom: var(--space-3);
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-title-small {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.hero-title-main {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  margin: var(--space-1) 0;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: var(--z-below);
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('/src/assets/shotgun650.webp');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+}
+
+.hero-background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0; /* Ensure it is above the background but below content */
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+  z-index: 1; /* Ensure it is above the video */
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-normal);
+  text-align: center;
+}
+
+.scroll-text {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: var(--space-1);
+  color: var(--color-neutral-300);
+}
+
+.scroll-icon {
+  display: block;
+  width: 20px;
+  height: 32px;
+  margin: 0 auto;
+  border: 2px solid white;
+  border-radius: 10px;
+  position: relative;
+}
+
+.scroll-icon::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: white;
+  border-radius: 50%;
+  animation: scrollDown 2s infinite;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  80% {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-text {
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-2);
+  }
+  
+  .hero-title-main {
+    font-size: 3rem;
+  }
+  
+  .hero-title-small {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+}

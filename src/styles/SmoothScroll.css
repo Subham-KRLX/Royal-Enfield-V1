@@ -1,0 +1,16 @@
+.smooth-scroll-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--color-accent);
+  transform-origin: 0%;
+  z-index: var(--z-above);
+}

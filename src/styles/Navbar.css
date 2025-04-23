@@ -1,0 +1,131 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: var(--z-above);
+  padding: var(--space-2) 0;
+  transition: all var(--transition-medium) ease;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: var(--space-1) 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+.navbar-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: var(--z-above);
+}
+
+.navbar-logo:hover {
+  color: var(--color-accent);
+}
+
+.navbar-links-desktop {
+  display: none;
+}
+
+.navbar-link {
+  margin-left: var(--space-3);
+  color: white;
+  font-weight: 500;
+  position: relative;
+  padding: var(--space-1) 0;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-accent);
+  transition: width var(--transition-medium) ease;
+}
+
+.navbar-link:hover {
+  color: white;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
+}
+
+.navbar-mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: var(--z-above);
+}
+
+.navbar-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: all var(--transition-fast) ease;
+}
+
+.navbar-mobile-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.navbar-mobile-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-mobile-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.navbar-mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  background-color: var(--color-secondary-dark);
+  display: flex;
+  flex-direction: column;
+  padding: 80px var(--space-3) var(--space-3);
+}
+
+.navbar-mobile-link {
+  font-size: 1.25rem;
+  color: white;
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 768px) {
+  .navbar-links-desktop {
+    display: flex;
+  }
+  
+  .navbar-mobile-toggle {
+    display: none;
+  }
+}

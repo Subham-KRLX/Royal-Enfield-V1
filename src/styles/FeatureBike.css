@@ -1,0 +1,108 @@
+.feature-bike {
+  padding: var(--space-8) 0;
+  background-color: var(--color-neutral-100);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-bike:nth-child(even) {
+  background-color: var(--color-neutral-200);
+}
+
+.feature-bike-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.feature-bike-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.feature-bike-tagline {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+  font-weight: 400;
+}
+
+.feature-bike-specs {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-2);
+}
+
+.feature-bike-specs li {
+  padding: var(--space-1);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-neutral-600);
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.feature-bike-cta {
+  margin-top: var(--space-3);
+}
+
+.feature-bike-image-container {
+  flex: 1;
+  max-width: 650px;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-bike-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform var(--transition-medium) ease;
+}
+
+.feature-bike-image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--transition-medium) ease;
+}
+
+.feature-bike-image-overlay span {
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 992px) {
+  .feature-bike-content {
+    flex-direction: row;
+  }
+  
+  .feature-bike.reversed .feature-bike-content {
+    flex-direction: row-reverse;
+  }
+}

@@ -1,0 +1,240 @@
+.bike-details-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.bike-hero {
+  height: 60vh;
+  background-image: url('https://images.unsplash.com/photo-1558979159-2b18a4070a87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.bike-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.bike-hero-content {
+  position: relative;
+  z-index: 1;
+  padding: var(--space-3);
+  margin-left: var(--space-4);
+  max-width: 500px;
+}
+
+.bike-hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: var(--space-1);
+}
+
+.bike-tagline {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+}
+
+.bike-price {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.bike-gallery {
+  padding: var(--space-6) 0;
+}
+
+.bike-gallery-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.bike-gallery-main {
+  flex: 1;
+}
+
+.bike-gallery-main-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-2);
+  transition: transform var(--transition-fast) ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bike-gallery-main-image.zoomed img {
+  transform: scale(1.5);
+}
+
+.bike-gallery-main-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-medium) ease;
+}
+
+.bike-gallery-thumbnails {
+  display: flex;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast) ease;
+  cursor: pointer;
+  background: none;
+}
+
+.thumbnail.active {
+  border-color: var(--color-primary);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bike-gallery-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.bike-colors h3,
+.bike-specs h3,
+.bike-features h3 {
+  margin-bottom: var(--space-2);
+  font-size: 1.5rem;
+}
+
+.color-options {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+.color-option {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform var(--transition-fast) ease;
+}
+
+.color-option.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+.selected-color-name {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600);
+}
+
+.bike-specs ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-2);
+}
+
+.bike-specs li {
+  padding: var(--space-1);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.spec-name {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-neutral-600);
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-weight: 600;
+}
+
+.bike-features ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-1);
+}
+
+.bike-features li {
+  padding: var(--space-1);
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.bike-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.bike-cta {
+  display: flex;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 992px) {
+  .bike-gallery-content {
+    flex-direction: row;
+  }
+  
+  .bike-gallery-main {
+    flex: 3;
+  }
+  
+  .bike-gallery-info {
+    flex: 2;
+  }
+}

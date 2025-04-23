@@ -1,0 +1,128 @@
+/* Bikes Showcase */
+.bikes-showcase {
+  padding: var(--space-6) 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: var(--space-6);
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+/* Heritage Preview */
+.heritage-preview {
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+.heritage-preview-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1662788019531-89849ebb754a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+.heritage-preview-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.heritage-preview-content {
+  text-align: center;
+  max-width: 700px;
+  padding: var(--space-3);
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+}
+
+.heritage-preview-content h2 {
+  font-size: 3rem;
+  margin-bottom: var(--space-2);
+}
+
+.heritage-preview-content p {
+  margin-bottom: var(--space-3);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Customize Preview */
+.customize-preview {
+  padding: var(--space-8) 0;
+  background-color: var(--color-neutral-200);
+}
+
+.customize-preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.customize-preview-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.customize-preview-text h2 {
+  margin-bottom: var(--space-2);
+}
+
+.customize-preview-text p {
+  margin-bottom: var(--space-3);
+}
+
+.customize-preview-image {
+  flex: 1;
+  max-width: 600px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.customize-preview-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform var(--transition-medium) ease;
+}
+
+.customize-preview-image:hover img {
+  transform: scale(1.05);
+}
+
+@media (min-width: 992px) {
+  .customize-preview-content {
+    flex-direction: row;
+  }
+}
