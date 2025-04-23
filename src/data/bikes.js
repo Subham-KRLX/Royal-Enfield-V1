@@ -94,7 +94,7 @@ const bikes = [
     ],
     price: "$5,299",
     images: {
-      main: "https://images.pexels.com/photos/19578575/pexels-photo-19578575.jpeg?cs=srgb&dl=pexels-green-19578575.jpg&fm=jpg",
+       main: "https://images.pexels.com/photos/17266142/pexels-photo-17266142/free-photo-of-royal-enfield-himalayan-motorbike.jpeg",
       gallery: [
         "https://www.royalenfield.com/content/dam/royal-enfield/motorcycles/himalayan/colors/new-studio-shots/slate-poppy-blue/slate-poppy-blue-000.webp",
         "https://www.royalenfield.com/content/dam/royal-enfield/motorcycles/himalayan/colors/new-studio-shots/kaza-brown/kaza-brown-000.webp",
