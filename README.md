@@ -1,8 +1,37 @@
-# React + Vite
+# Royal Enfield | Reimagined
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, modern redesign of the Royal Enfield website, built to deliver an immersive brand experience.
 
-Currently, two official plugins are available:
+## ✨ Key Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Premium Aesthetic:** Glassmorphism, parallax effects, and smooth reveal animations.
+*   **Dual-Theme System:** Seamless Dark & Light mode toggle with distinct, optimized color palettes.
+*   **Interactive Showroom:** Dynamic motorcycle details, circular color swatches, and high-res galleries.
+*   **Performance First:** Built on Vite for lightning-fast HMR and optimized asset loading.
+
+## 🛠️ Tech Stack
+
+*   **Core:** React.js + Vite
+*   **Styling:** Modern CSS3 (Variables, Flex/Grid) + Glassmorphism
+*   **Animations:** Framer Motion + GSAP
+*   **Routing:** React Router v6
+
+## 🚀 Quick Start
+
+1.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+2.  **Start the development server:**
+    ```bash
+    npm run dev
+    ```
+
+3.  **Build for production:**
+    ```bash
+    npm run build
+    ```
+
+---
+*Crafting journeys since 1901.*
