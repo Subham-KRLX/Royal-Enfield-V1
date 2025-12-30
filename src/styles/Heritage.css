@@ -1,6 +1,7 @@
 .heritage-hero {
   height: 60vh;
-  background-image: url('https://images.unsplash.com/photo-1662788019531-89849ebb754a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your image URL */
+  background-image: url('https://images.unsplash.com/photo-1662788019531-89849ebb754a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  /* Replace with your image URL */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -18,13 +19,15 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6); /* Optional overlay for better text visibility */
+  background: rgba(0, 0, 0, 0.6);
+  /* Optional overlay for better text visibility */
   z-index: 1;
 }
 
 .heritage-hero-content {
   position: relative;
-  z-index: 2; /* Ensure content is above the background and overlay */
+  z-index: 2;
+  /* Ensure content is above the background and overlay */
   text-align: center;
   max-width: 800px;
   padding: var(--space-3);
@@ -115,8 +118,8 @@
   height: auto;
   display: block;
   transition: transform var(--transition-medium) ease;
-  opacity: 1; 
-  filter: none; 
+  opacity: 1;
+  filter: none;
 }
 
 .timeline-content:hover .timeline-image img {
@@ -142,74 +145,91 @@
 
 /* Quote */
 .heritage-quote {
-  padding: var(--space-8) 0;
-  background-color: var(--color-neutral-900);
-  color: white;
+  padding: 120px 0;
+  /* More vertical space */
+  background-color: var(--card-bg);
+  /* Use theme variable */
+  color: var(--text-main);
+  transition: background-color 0.3s ease;
 }
 
 .quote-content {
-  max-width: 800px;
+  max-width: 900px;
+  /* Wider container */
   margin: 0 auto;
+  padding: 0 20px;
 }
 
 blockquote {
   position: relative;
-  padding: var(--space-4) var(--space-6);
+  padding: 40px 60px;
+  /* More internal padding */
   font-family: var(--font-heading);
+  text-align: center;
+  /* Center the quote */
 }
 
 blockquote::before,
 blockquote::after {
   content: '"';
   font-family: Georgia, serif;
-  font-size: 5rem;
+  font-size: 8rem;
+  /* Larger quote marks */
   position: absolute;
-  color: var(--color-primary);
-  opacity: 0.3;
+  color: var(--primary);
+  opacity: 0.2;
 }
 
 blockquote::before {
-  top: -20px;
-  left: 0;
+  top: -40px;
+  left: -20px;
 }
 
 blockquote::after {
-  bottom: -60px;
-  right: 0;
+  bottom: -80px;
+  right: -20px;
   transform: rotate(180deg);
 }
 
 blockquote p {
-  font-size: 1.75rem;
-  line-height: 1.4;
-  margin-bottom: var(--space-2);
+  font-size: 2rem;
+  /* Slightly larger text */
+  line-height: 1.8;
+  /* More breathing room between lines */
+  margin-bottom: 30px;
   font-style: italic;
+  position: relative;
+  z-index: 1;
 }
 
 blockquote cite {
   font-style: normal;
-  font-size: 1rem;
-  color: var(--color-neutral-400);
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
 }
 
 @media (max-width: 768px) {
   .timeline-line {
     left: 20px;
   }
-  
+
   .timeline-item {
     width: auto;
     padding-left: var(--space-5);
     margin-left: 20px !important;
     margin-right: 0 !important;
   }
-  
+
   .timeline-item.left,
   .timeline-item.right {
     padding-right: 0;
     padding-left: var(--space-5);
   }
-  
+
   .timeline-item.left .timeline-dot,
   .timeline-item.right .timeline-dot {
     left: -10px;

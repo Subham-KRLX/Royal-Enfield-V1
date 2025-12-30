@@ -10,44 +10,44 @@ const BikeDetails = ({ setCursorVariant }) => {
   const [selectedColor, setSelectedColor] = useState(0)
   const [currentImage, setCurrentImage] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
-  
+
   const imageRef = useRef(null)
-  
+
   useEffect(() => {
     // Find the bike that matches the id
     const bike = bikes.find(bike => bike.id === id)
     setSelectedBike(bike)
-    
+
     // Reset states
     setSelectedColor(0)
     setCurrentImage(0)
-    
+
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 800)
-    
+
     return () => clearTimeout(timer)
   }, [id])
-  
+
   const handleColorChange = (index) => {
     setSelectedColor(index)
   }
-  
+
   const handleImageChange = (index) => {
     setCurrentImage(index)
   }
-  
+
   const handleMouseMove = (e) => {
     if (!imageRef.current) return
-    
+
     const { left, top, width, height } = imageRef.current.getBoundingClientRect()
     const x = (e.clientX - left) / width
     const y = (e.clientY - top) / height
-    
+
     imageRef.current.style.transformOrigin = `${x * 100}% ${y * 100}%`
   }
-  
+
   if (isLoading || !selectedBike) {
     return (
       <div className="bike-details-loading">
@@ -55,11 +55,11 @@ const BikeDetails = ({ setCursorVariant }) => {
       </div>
     )
   }
-  
+
   return (
     <main className="bike-details">
       <div className="bike-hero">
-        <motion.div 
+        <motion.div
           className="bike-hero-content"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -70,13 +70,13 @@ const BikeDetails = ({ setCursorVariant }) => {
           <p className="bike-price">Starting at {selectedBike.price}</p>
         </motion.div>
       </div>
-      
+
       <section className="bike-gallery">
         <div className="container">
           <div className="bike-gallery-content">
             <div className="bike-gallery-main">
               <AnimatePresence mode="wait">
-                <motion.div 
+                <motion.div
                   key={`${currentImage}-${selectedColor}`}
                   className="bike-gallery-main-image"
                   initial={{ opacity: 0 }}
@@ -101,9 +101,9 @@ const BikeDetails = ({ setCursorVariant }) => {
                   )}
                 </motion.div>
               </AnimatePresence>
-              
+
               <div className="bike-gallery-thumbnails">
-                <button 
+                <button
                   className={`thumbnail ${currentImage === 0 ? 'active' : ''}`}
                   onClick={() => handleImageChange(0)}
                   onMouseEnter={() => setCursorVariant('button')}
@@ -111,9 +111,9 @@ const BikeDetails = ({ setCursorVariant }) => {
                 >
                   <img src={selectedBike.images.main} alt={`${selectedBike.name} main`} />
                 </button>
-                
+
                 {selectedBike.images.gallery.map((image, index) => (
-                  <button 
+                  <button
                     key={index}
                     className={`thumbnail ${currentImage === index + 1 ? 'active' : ''}`}
                     onClick={() => handleImageChange(index + 1)}
@@ -125,33 +125,31 @@ const BikeDetails = ({ setCursorVariant }) => {
                 ))}
               </div>
             </div>
-            
+
             <div className="bike-gallery-info">
               <div className="bike-description">
                 <h2>Overview</h2>
                 <p>{selectedBike.description}</p>
               </div>
-              
+
               <div className="bike-colors">
                 <h3>Available Colors</h3>
                 <div className="color-options">
                   {selectedBike.colors.map((color, index) => (
-                    <button 
+                    <button
                       key={index}
                       className={`color-option ${selectedColor === index ? 'active' : ''}`}
                       style={{ backgroundColor: color.code }}
                       onClick={() => handleColorChange(index)}
-                      aria-label={color.name}
+                      title={color.name}
                       onMouseEnter={() => setCursorVariant('button')}
                       onMouseLeave={() => setCursorVariant('default')}
-                    >
-                      <span className="visually-hidden">{color.name}</span>
-                    </button>
+                    />
                   ))}
                 </div>
                 <p className="selected-color-name">{selectedBike.colors[selectedColor].name}</p>
               </div>
-              
+
               <div className="bike-specs">
                 <h3>Specifications</h3>
                 <ul>
@@ -163,7 +161,7 @@ const BikeDetails = ({ setCursorVariant }) => {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="bike-features">
                 <h3>Key Features</h3>
                 <ul>
@@ -172,9 +170,9 @@ const BikeDetails = ({ setCursorVariant }) => {
                   ))}
                 </ul>
               </div>
-              
+
               <div className="bike-cta">
-                <motion.button 
+                <motion.button
                   className="btn btn-primary"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -183,8 +181,8 @@ const BikeDetails = ({ setCursorVariant }) => {
                 >
                   Book a Test Ride
                 </motion.button>
-                
-                <motion.button 
+
+                <motion.button
                   className="btn btn-outline"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

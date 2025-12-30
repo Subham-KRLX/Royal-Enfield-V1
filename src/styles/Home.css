@@ -1,36 +1,49 @@
+/* Container */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
 /* Bikes Showcase */
 .bikes-showcase {
-  padding: var(--space-6) 0;
+  padding: 100px 0;
+  /* Transparent background to let body gradient show */
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: var(--space-6);
+  font-size: 3rem;
+  /* Larger */
+  margin-bottom: 60px;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 3px;
   position: relative;
   display: inline-block;
-  font-size: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .section-title::after {
   content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
+  display: block;
+  width: 60px;
   height: 3px;
-  background-color: var(--color-primary);
+  background: var(--primary);
+  margin: 15px auto 0;
 }
 
 /* Heritage Preview */
 .heritage-preview {
-  height: 100vh;
+  height: 80vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
   overflow: hidden;
+  margin: 60px 0;
+  /* Add spacing */
 }
 
 .heritage-preview-bg {
@@ -39,10 +52,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1662788019531-89849ebb754a?q=80&w=3132&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-image: url('https://images.pexels.com/photos/17266142/pexels-photo-17266142.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-size: cover;
   background-position: center;
-  transform: scale(1.1);
   z-index: -1;
 }
 
@@ -53,76 +65,94 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.4);
+  /* Lighter overlay for visibility */
 }
 
 .heritage-preview-content {
   text-align: center;
-  max-width: 700px;
-  padding: var(--space-3);
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
-  border-radius: var(--radius-md);
+  max-width: 800px;
+  padding: 40px;
+  color: white;
+  /* Always white on image */
+  position: relative;
+  z-index: 1;
+}
+
+.heritage-preview-content h1.outline-text {
+  -webkit-text-stroke: 1px white;
+  /* Always white outline on dark image */
 }
 
 .heritage-preview-content h2 {
-  font-size: 3rem;
-  margin-bottom: var(--space-2);
+  font-size: 3.5rem;
+  margin-bottom: 20px;
 }
 
 .heritage-preview-content p {
-  margin-bottom: var(--space-3);
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-/* Customize Preview */
+/* Sections */
 .customize-preview {
-  padding: var(--space-8) 0;
-  background-color: var(--color-neutral-200);
+  padding: 100px 0;
+  /* No background color, inherits body gradient */
 }
 
+/* Flex Layouts for Previews */
 .customize-preview-content {
   display: flex;
-  flex-direction: column;
+  gap: 60px;
   align-items: center;
-  gap: var(--space-4);
 }
 
 .customize-preview-text {
   flex: 1;
-  max-width: 500px;
 }
 
 .customize-preview-text h2 {
-  margin-bottom: var(--space-2);
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: var(--text-main);
 }
 
 .customize-preview-text p {
-  margin-bottom: var(--space-3);
+  font-size: 1.2rem;
+  color: var(--text-dim);
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .customize-preview-image {
-  flex: 1;
-  max-width: 600px;
-  border-radius: var(--radius-lg);
+  flex: 1.2;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  /* More subtle shadow */
 }
 
 .customize-preview-image img {
   width: 100%;
   height: auto;
   display: block;
-  transition: transform var(--transition-medium) ease;
+  transition: transform 0.5s ease;
 }
 
-.customize-preview-image:hover img {
+.customize-preview-image img:hover {
   transform: scale(1.05);
 }
 
-@media (min-width: 992px) {
+/* Mobile */
+@media (max-width: 900px) {
   .customize-preview-content {
-    flex-direction: row;
+    flex-direction: column-reverse;
+    /* Text on top usually better, or Image on top? Let's stick to col for simple stack */
+    text-align: center;
+  }
+
+  .customize-preview-content {
+    flex-direction: column;
   }
 }

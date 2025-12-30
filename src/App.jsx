@@ -12,6 +12,11 @@ import SmoothScroll from './components/SmoothScroll'
 import LoadingScreen from './components/LoadingScreen'
 import './styles/App.css'
 
+import Community from './pages/Community'
+import Dealers from './pages/Dealers'
+import { CartProvider } from './context/CartContext'
+import { ThemeProvider } from './context/ThemeContext'
+
 function App() {
   const [loading, setLoading] = useState(true)
   const [cursorVariant, setCursorVariant] = useState('default')
@@ -25,25 +30,29 @@ function App() {
   }, [])
 
   return (
-    <>
-      <Cursor cursorVariant={cursorVariant} />
-      <AnimatePresence mode="wait">
-        {loading ? (
-          <LoadingScreen key="loading" />
-        ) : (
-          <SmoothScroll key="content">
-            <Navbar setCursorVariant={setCursorVariant} />
-            <Routes>
-              <Route path="/" element={<Home setCursorVariant={setCursorVariant} />} />
-              <Route path="/bike/:id" element={<BikeDetails setCursorVariant={setCursorVariant} />} />
-              <Route path="/heritage" element={<Heritage setCursorVariant={setCursorVariant} />} />
-              <Route path="/customize" element={<Customize setCursorVariant={setCursorVariant} />} />
-            </Routes>
-            <Footer setCursorVariant={setCursorVariant} />
-          </SmoothScroll>
-        )}
-      </AnimatePresence>
-    </>
+    <ThemeProvider>
+      <CartProvider>
+        <Cursor cursorVariant={cursorVariant} />
+        <AnimatePresence mode="wait">
+          {loading ? (
+            <LoadingScreen key="loading" />
+          ) : (
+            <SmoothScroll key="content">
+              <Navbar setCursorVariant={setCursorVariant} />
+              <Routes>
+                <Route path="/" element={<Home setCursorVariant={setCursorVariant} />} />
+                <Route path="/bike/:id" element={<BikeDetails setCursorVariant={setCursorVariant} />} />
+                <Route path="/heritage" element={<Heritage setCursorVariant={setCursorVariant} />} />
+                <Route path="/customize" element={<Customize setCursorVariant={setCursorVariant} />} />
+                <Route path="/community" element={<Community setCursorVariant={setCursorVariant} />} />
+                <Route path="/dealers" element={<Dealers setCursorVariant={setCursorVariant} />} />
+              </Routes>
+              <Footer setCursorVariant={setCursorVariant} />
+            </SmoothScroll>
+          )}
+        </AnimatePresence>
+      </CartProvider>
+    </ThemeProvider>
   )
 }
 
