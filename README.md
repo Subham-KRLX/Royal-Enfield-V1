@@ -1,6 +1,8 @@
 # Royal Enfield | Reimagined
 
+
 A premium, modern redesign of the Royal Enfield website, built to deliver an immersive brand experience.
+
 
 ## ✨ Key Features
 
@@ -10,6 +12,7 @@ A premium, modern redesign of the Royal Enfield website, built to deliver an imm
 *   **Performance First:** Built on Vite for lightning-fast HMR and optimized asset loading.
 
 ## 🛠️ Tech Stack
+
 
 *   **Core:** React.js + Vite
 *   **Styling:** Modern CSS3 (Variables, Flex/Grid) + Glassmorphism
