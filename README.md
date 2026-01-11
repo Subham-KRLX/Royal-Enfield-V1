@@ -13,7 +13,6 @@ A premium, modern redesign of the Royal Enfield website, built to deliver an imm
 
 ## 🛠️ Tech Stack
 
-
 *   **Core:** React.js + Vite
 *   **Styling:** Modern CSS3 (Variables, Flex/Grid) + Glassmorphism
 *   **Animations:** Framer Motion + GSAP
